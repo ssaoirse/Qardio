@@ -15,6 +15,10 @@ class ViewController: UIViewController {
 
     private var measurements = [Double]()
 
+    private lazy var interactor: HeartRateBusinessLogic =
+        HRMonitorInteractor(dataProvider: ((UIApplication.shared.delegate as? AppDelegate)?.dataProvider)!,
+                            presenter: HRMonitorPresenter(viewController: self))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,11 +32,14 @@ class ViewController: UIViewController {
         },
             completion: nil
         )
-
+        /*
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         appDelegate.dataProvider.subscribeNewListener(self)
+        */
+        interactor.listenAndCompute()
+        
     }
 }
 
@@ -47,5 +54,19 @@ extension ViewController: DataProviderListener {
         DispatchQueue.main.async {
             self.ecgView.setNeedsDisplay()
         }
+    }
+}
+
+
+extension ViewController: HeartRateDisplayable {
+    func updateECG(with measurements:[Double]) {
+        self.ecgView.measurements = measurements
+        DispatchQueue.main.async {
+            self.ecgView.setNeedsDisplay()
+        }
+    }
+    
+    func displayHeartRate() {
+        
     }
 }
