@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		280283B2203EE09500EAF86F /* ECGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280283B1203EE09500EAF86F /* ECGView.swift */; };
+		280283B4203EE81D00EAF86F /* ecgdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 280283B3203EE81C00EAF86F /* ecgdata.csv */; };
+		280283B6203EEFCB00EAF86F /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 280283B5203EEFCB00EAF86F /* heart.png */; };
+		28428CD31FE184C0008C49DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28428CD21FE184C0008C49DD /* AppDelegate.swift */; };
+		28428CD51FE184C0008C49DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28428CD41FE184C0008C49DD /* ViewController.swift */; };
+		28428CD81FE184C0008C49DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28428CD61FE184C0008C49DD /* Main.storyboard */; };
+		28428CDA1FE184C0008C49DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28428CD91FE184C0008C49DD /* Assets.xcassets */; };
+		28428CDD1FE184C0008C49DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28428CDB1FE184C0008C49DD /* LaunchScreen.storyboard */; };
+		28428CE51FE184CF008C49DD /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28428CE41FE184CF008C49DD /* DataProvider.swift */; };
+		D0EE0F9D1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0F9B1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld */; };
+		D0EE0FC51FE29F5B00F0583B /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EE0FC41FE29F5B00F0583B /* DataController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		280283B1203EE09500EAF86F /* ECGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGView.swift; sourceTree = "<group>"; };
+		280283B3203EE81C00EAF86F /* ecgdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ecgdata.csv; sourceTree = "<group>"; };
+		280283B5203EEFCB00EAF86F /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		28428CCF1FE184C0008C49DD /* QardioTestAssignmentDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QardioTestAssignmentDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28428CD21FE184C0008C49DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28428CD41FE184C0008C49DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28428CD71FE184C0008C49DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28428CD91FE184C0008C49DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28428CDC1FE184C0008C49DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		28428CDE1FE184C0008C49DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28428CE41FE184CF008C49DD /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		D0EE0F971FE28D4200F0583B /* QardioTestAssignmentDataSource-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QardioTestAssignmentDataSource-Bridging-Header.h"; sourceTree = "<group>"; };
+		D0EE0F9C1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QardioTestAssignmentDataSource.xcdatamodel; sourceTree = "<group>"; };
+		D0EE0FC31FE29F5B00F0583B /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
+		D0EE0FC41FE29F5B00F0583B /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28428CCC1FE184C0008C49DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		280283BB203F0D1000EAF86F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				280283B5203EEFCB00EAF86F /* heart.png */,
+				280283B1203EE09500EAF86F /* ECGView.swift */,
+				280283B3203EE81C00EAF86F /* ecgdata.csv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		28428CC61FE184C0008C49DD = {
+			isa = PBXGroup;
+			children = (
+				28428CD11FE184C0008C49DD /* QardioTestAssignmentDataSource */,
+				280283BB203F0D1000EAF86F /* Resources */,
+				28428CD01FE184C0008C49DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28428CD01FE184C0008C49DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28428CCF1FE184C0008C49DD /* QardioTestAssignmentDataSource.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28428CD11FE184C0008C49DD /* QardioTestAssignmentDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				28428CD21FE184C0008C49DD /* AppDelegate.swift */,
+				28428CD41FE184C0008C49DD /* ViewController.swift */,
+				28428CE41FE184CF008C49DD /* DataProvider.swift */,
+				D0EE0FC31FE29F5B00F0583B /* DataController.h */,
+				D0EE0FC41FE29F5B00F0583B /* DataController.m */,
+				28428CD61FE184C0008C49DD /* Main.storyboard */,
+				28428CD91FE184C0008C49DD /* Assets.xcassets */,
+				28428CDB1FE184C0008C49DD /* LaunchScreen.storyboard */,
+				28428CDE1FE184C0008C49DD /* Info.plist */,
+				D0EE0F971FE28D4200F0583B /* QardioTestAssignmentDataSource-Bridging-Header.h */,
+				D0EE0F9B1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld */,
+			);
+			path = QardioTestAssignmentDataSource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28428CCE1FE184C0008C49DD /* QardioTestAssignmentDataSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28428CE11FE184C0008C49DD /* Build configuration list for PBXNativeTarget "QardioTestAssignmentDataSource" */;
+			buildPhases = (
+				28428CCB1FE184C0008C49DD /* Sources */,
+				28428CCC1FE184C0008C49DD /* Frameworks */,
+				28428CCD1FE184C0008C49DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QardioTestAssignmentDataSource;
+			productName = QardioTestAssignmentDataSourse;
+			productReference = 28428CCF1FE184C0008C49DD /* QardioTestAssignmentDataSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28428CC71FE184C0008C49DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = DI;
+				TargetAttributes = {
+					28428CCE1FE184C0008C49DD = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 28428CCA1FE184C0008C49DD /* Build configuration list for PBXProject "QardioTestAssignmentDataSource" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28428CC61FE184C0008C49DD;
+			productRefGroup = 28428CD01FE184C0008C49DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28428CCE1FE184C0008C49DD /* QardioTestAssignmentDataSource */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28428CCD1FE184C0008C49DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28428CDD1FE184C0008C49DD /* LaunchScreen.storyboard in Resources */,
+				28428CDA1FE184C0008C49DD /* Assets.xcassets in Resources */,
+				280283B6203EEFCB00EAF86F /* heart.png in Resources */,
+				280283B4203EE81D00EAF86F /* ecgdata.csv in Resources */,
+				28428CD81FE184C0008C49DD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28428CCB1FE184C0008C49DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				280283B2203EE09500EAF86F /* ECGView.swift in Sources */,
+				28428CE51FE184CF008C49DD /* DataProvider.swift in Sources */,
+				D0EE0F9D1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld in Sources */,
+				28428CD51FE184C0008C49DD /* ViewController.swift in Sources */,
+				28428CD31FE184C0008C49DD /* AppDelegate.swift in Sources */,
+				D0EE0FC51FE29F5B00F0583B /* DataController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		28428CD61FE184C0008C49DD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28428CD71FE184C0008C49DD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28428CDB1FE184C0008C49DD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28428CDC1FE184C0008C49DD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28428CDF1FE184C0008C49DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28428CE01FE184C0008C49DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28428CE21FE184C0008C49DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QardioTestAssignmentDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DI.QardioTestAssignmentDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28428CE31FE184C0008C49DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QardioTestAssignmentDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = DI.QardioTestAssignmentDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28428CCA1FE184C0008C49DD /* Build configuration list for PBXProject "QardioTestAssignmentDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28428CDF1FE184C0008C49DD /* Debug */,
+				28428CE01FE184C0008C49DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28428CE11FE184C0008C49DD /* Build configuration list for PBXNativeTarget "QardioTestAssignmentDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28428CE21FE184C0008C49DD /* Debug */,
+				28428CE31FE184C0008C49DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0EE0F9B1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0EE0F9C1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodel */,
+			);
+			currentVersion = D0EE0F9C1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodel */;
+			path = QardioTestAssignmentDataSource.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 28428CC71FE184C0008C49DD /* Project object */;
+}
