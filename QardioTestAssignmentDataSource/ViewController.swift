@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet private var ecgView: ECGView!
     @IBOutlet private var heartImage: UIImageView!
 
+    @IBOutlet weak var averageHRValueLabel: UILabel!
+    @IBOutlet weak var averageRHRValueLabel: UILabel!
+    @IBOutlet weak var frequentHRValueLabel: UILabel!
+    @IBOutlet weak var sessionTimeValueLabel: UILabel!
+    
     private var measurements = [Double]()
 
     private lazy var interactor: HeartRateBusinessLogic =
@@ -58,6 +63,7 @@ extension ViewController: DataProviderListener {
 }
 
 
+// MARK:- HeartRateDisplayable -
 extension ViewController: HeartRateDisplayable {
     func updateECG(with measurements:[Double]) {
         self.ecgView.measurements = measurements
@@ -66,7 +72,27 @@ extension ViewController: HeartRateDisplayable {
         }
     }
     
-    func displayHeartRate() {
-        
+    func displayHeartRate(value: String) {
+        DispatchQueue.main.async {
+            self.averageHRValueLabel.text = value
+        }
+    }
+    
+    func displayRestingHeartRate(value: String) {
+        DispatchQueue.main.async {
+            self.averageRHRValueLabel.text = value
+        }
+    }
+    
+    func displayFrequentHeartRate(value: String) {
+        DispatchQueue.main.async {
+            self.frequentHRValueLabel.text = value
+        }
+    }
+    
+    func displaySessionTime(value: String) {
+        DispatchQueue.main.async {
+            self.sessionTimeValueLabel.text = value
+        }
     }
 }

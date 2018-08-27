@@ -24,7 +24,19 @@ extension HRMonitorPresenter: HeartRatePresentable {
         self.viewController?.updateECG(with: measurements)
     }
 
-    func presentHeartRate() {
-        
+    func presentHeartRate(with value: Double) {
+        self.viewController?.displayHeartRate(value: String(format: "%d bpm", Int(value)))
+    }
+    
+    func presentRestingHeartRate(with value: Double) {
+        self.viewController?.displayRestingHeartRate(value: String(format: "%d bpm", Int(value)))
+    }
+    
+    func presentFrequentHeartRate(with value: Double) {
+        self.viewController?.displayFrequentHeartRate(value: String(format: "%d bpm", Int(value)))
+    }
+    
+    func presentSessionTime(with value: Double) {
+        self.viewController?.displaySessionTime(value: String(format: "%d secs", Int(value)))
     }
 }

@@ -39,5 +39,9 @@ extension HRMonitorInteractor: DataProviderListener {
         
         let result = Array(measurements.suffix(300))
         self.presenter.presentECG(with: result)
+        self.presenter.presentHeartRate(with: result[299])
+        self.presenter.presentRestingHeartRate(with: result[299])
+        self.presenter.presentFrequentHeartRate(with: result[299])
+        self.presenter.presentSessionTime(with: result[299])
     }
 }
