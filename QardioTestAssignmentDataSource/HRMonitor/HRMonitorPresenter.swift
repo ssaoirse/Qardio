@@ -36,7 +36,23 @@ extension HRMonitorPresenter: HeartRatePresentable {
         self.viewController?.displayFrequentHeartRate(value: String(format: "%d bpm", Int(value)))
     }
     
-    func presentSessionTime(with value: Double) {
-        self.viewController?.displaySessionTime(value: String(format: "%d secs", Int(value)))
+    func presentSessionTime(with value: Int) {
+        var result = ""
+        if value < 60 {
+            result = String(format: "00:00:%02d",value)
+        }
+        else if value > 60 && value < 3600 {
+            let min = value / 60
+            let sec = value % 60
+            result = String(format: "00:%02d:%02d", min, sec)
+        }
+        else {
+            let hr = value / 3600
+            let rem = (value % 3600)
+            let min = rem / 60
+            let sec = rem % 60
+            result = String(format: "%02d:%02d:%02d", hr, min, sec)
+        }
+        self.viewController?.displaySessionTime(value: result)
     }
 }

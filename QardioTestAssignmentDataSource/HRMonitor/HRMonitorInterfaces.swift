@@ -26,6 +26,6 @@ protocol HeartRatePresentable {
     func presentHeartRate(with value: Double)
     func presentRestingHeartRate(with value: Double)
     func presentFrequentHeartRate(with value: Double)
-    func presentSessionTime(with value: Double)
+    func presentSessionTime(with value: Int)
 }
 
