@@ -19,9 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var sessionTimeValueLabel: UILabel!
     
     private var measurements = [Double]()
-
+    
     private lazy var interactor: HeartRateBusinessLogic =
-        HRMonitorInteractor(dataProvider: ((UIApplication.shared.delegate as? AppDelegate)?.dataProvider)!,
+        HRMonitorInteractor(hrDataController: HRDataController(),
+                            dataProvider: ((UIApplication.shared.delegate as? AppDelegate)?.dataProvider)!,
                             presenter: HRMonitorPresenter(viewController: self))
     
     override func viewDidLoad() {
@@ -44,6 +45,8 @@ class ViewController: UIViewController {
         appDelegate.dataProvider.subscribeNewListener(self)
         */
         interactor.listenAndCompute()
+        //let _ = hrDataController.addLogForType(.averageHR, withRate: 200, date: Date(timeIntervalSinceNow: 0))
+    
         
     }
 }

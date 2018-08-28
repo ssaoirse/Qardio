@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042CEFEF213596E6008DF061 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFEE213596E6008DF061 /* CoreDataHelper.swift */; };
+		042CEFF1213598BC008DF061 /* HRDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFF0213598BC008DF061 /* HRDataController.swift */; };
+		042CEFF32135A0A5008DF061 /* HRType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CEFF22135A0A5008DF061 /* HRType.swift */; };
 		0458D0752133003F00FC26BB /* HRMonitorInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0742133003F00FC26BB /* HRMonitorInterfaces.swift */; };
 		0458D0772133017100FC26BB /* HRMonitorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0762133017100FC26BB /* HRMonitorInteractor.swift */; };
 		0458D0792133043D00FC26BB /* HRMonitorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0782133043D00FC26BB /* HRMonitorPresenter.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042CEFEE213596E6008DF061 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		042CEFF0213598BC008DF061 /* HRDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRDataController.swift; sourceTree = "<group>"; };
+		042CEFF22135A0A5008DF061 /* HRType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRType.swift; sourceTree = "<group>"; };
 		0458D0742133003F00FC26BB /* HRMonitorInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorInterfaces.swift; sourceTree = "<group>"; };
 		0458D0762133017100FC26BB /* HRMonitorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorInteractor.swift; sourceTree = "<group>"; };
 		0458D0782133043D00FC26BB /* HRMonitorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorPresenter.swift; sourceTree = "<group>"; };
@@ -55,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042CEFED213596C2008DF061 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				042CEFEE213596E6008DF061 /* CoreDataHelper.swift */,
+				042CEFF0213598BC008DF061 /* HRDataController.swift */,
+				042CEFF22135A0A5008DF061 /* HRType.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0458D0732133001F00FC26BB /* HRMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 		28428CD11FE184C0008C49DD /* QardioTestAssignmentDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				042CEFED213596C2008DF061 /* Helpers */,
 				0458D0732133001F00FC26BB /* HRMonitor */,
 				28428CD21FE184C0008C49DD /* AppDelegate.swift */,
 				28428CD41FE184C0008C49DD /* ViewController.swift */,
@@ -186,11 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042CEFEF213596E6008DF061 /* CoreDataHelper.swift in Sources */,
 				280283B2203EE09500EAF86F /* ECGView.swift in Sources */,
+				042CEFF1213598BC008DF061 /* HRDataController.swift in Sources */,
 				0458D0772133017100FC26BB /* HRMonitorInteractor.swift in Sources */,
 				28428CE51FE184CF008C49DD /* DataProvider.swift in Sources */,
 				D0EE0F9D1FE29D1000F0583B /* QardioTestAssignmentDataSource.xcdatamodeld in Sources */,
 				0458D0792133043D00FC26BB /* HRMonitorPresenter.swift in Sources */,
+				042CEFF32135A0A5008DF061 /* HRType.swift in Sources */,
 				28428CD51FE184C0008C49DD /* ViewController.swift in Sources */,
 				0458D0752133003F00FC26BB /* HRMonitorInterfaces.swift in Sources */,
 				28428CD31FE184C0008C49DD /* AppDelegate.swift in Sources */,

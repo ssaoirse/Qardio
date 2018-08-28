@@ -8,14 +8,26 @@
 
 import Foundation
 
+/*!
+ * @brief Interactor class which listens for updates from DataProvider,
+ *        Performs computation of various required values and triggers view updates,
+ *        logging etc.
+ */
 class HRMonitorInteractor {
+    /// Helper for adding logs to CoreData.
+    private let hrDataController: HRDataController
+    /// Provides updates for received data.
     private let dataProvider: DataProvider
+    /// Reference type to facilitate view updates.
     private let presenter: HeartRatePresentable
     
     private var measurements = [Double]()
     
     /// Initializer
-    init(dataProvider: DataProvider, presenter: HeartRatePresentable) {
+    init(hrDataController: HRDataController,
+         dataProvider: DataProvider,
+         presenter: HeartRatePresentable) {
+        self.hrDataController = hrDataController
         self.dataProvider = dataProvider
         self.presenter = presenter
     }
@@ -36,12 +48,24 @@ extension HRMonitorInteractor: DataProviderListener {
         measurements.append(measurement)
         
         guard measurements.count >= 300 else { return }
-        
         let result = Array(measurements.suffix(300))
+        
+        // TODO: Update fields.
+//        DispatchQueue.main.async {[weak self] in
+//            self?.logAverageHeartRate(Int((self?.measurements[(self?.measurements.count)!-1])!))
+//        }
         self.presenter.presentECG(with: result)
         self.presenter.presentHeartRate(with: result[299])
         self.presenter.presentRestingHeartRate(with: result[299])
         self.presenter.presentFrequentHeartRate(with: result[299])
         self.presenter.presentSessionTime(with: result[299])
+    }
+    
+    fileprivate func logAverageHeartRate(_ rate: Int) {
+        let _ = self.hrDataController.addLogForType(.averageHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
+    }
+    
+    fileprivate func logAverageRestingHeartRate(_ rate: Int) {
+        let _ = self.hrDataController.addLogForType(.averageRHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
     }
 }
