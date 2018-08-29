@@ -13,4 +13,7 @@ struct Constants {
     static  let kMinReadingsForAverageFrequentHR        = 20000
     // Interval for Frequent readings in Secs.
     static let kFrequentHRReadingsIntervalInSecs        = 5
+    static let kChunkSizeForAverageHR                   = 10000
+    static let kRestingHRThreshold                      = 65
+    static let kMinReadingsForAverageRHR                = 1000
 }

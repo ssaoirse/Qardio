@@ -42,19 +42,33 @@
                 }
             }];
         }
-        
-        self.mainContext = self.mainContainer.viewContext;
+        // Modified: Using background context.
+        //self.mainContext = self.mainContainer.viewContext
+        self.mainContext = self.mainContainer.newBackgroundContext;
     }
 }
 
 - (void)saveContext
 {
     NSManagedObjectContext *context = self.mainContext;
+    
+    // Modified: Using Background context.
+#if 0
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error])
     {
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+#endif
+    [context performBlock:^{
+        NSError *error = nil;
+        if ([context hasChanges] && ![context save:&error])
+        {
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+    }];
+    
 }
 @end

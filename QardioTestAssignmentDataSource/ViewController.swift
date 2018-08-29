@@ -38,16 +38,13 @@ class ViewController: UIViewController {
         },
             completion: nil
         )
-        /*
+        /* Modified: Using Interactor to listen and compute.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         appDelegate.dataProvider.subscribeNewListener(self)
         */
-        interactor.listenAndCompute()
-        //let _ = hrDataController.addLogForType(.averageHR, withRate: 200, date: Date(timeIntervalSinceNow: 0))
-    
-        
+        interactor.listenAndUpdate()
     }
 }
 
@@ -69,8 +66,8 @@ extension ViewController: DataProviderListener {
 // MARK:- HeartRateDisplayable -
 extension ViewController: HeartRateDisplayable {
     func updateECG(with measurements:[Int]) {
-        self.ecgView.measurements = measurements
         DispatchQueue.main.async {
+            self.ecgView.measurements = measurements
             self.ecgView.setNeedsDisplay()
         }
     }

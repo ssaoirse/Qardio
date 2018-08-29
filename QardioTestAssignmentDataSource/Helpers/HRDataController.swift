@@ -14,22 +14,24 @@ import Foundation
 class HRDataController: NSObject {
     
     // Add Log
-    func addLogForType(_ type: HRType, withRate rate: Int, date: Date) -> Bool {
+    func addLogForType(_ type: HRType, withRate rate: Int, date: Date) {
         let context = CoreDataHelper.shared().getContext()
         guard let entity = NSEntityDescription.entity(forEntityName: type.rawValue, in: context) else {
             print("Unable to add entity for \(type.rawValue)")
-            return false
+            return
         }
         let newObj = NSManagedObject(entity: entity, insertInto: context)
         newObj.setValue(rate, forKey: "heartrate")
         newObj.setValue(date, forKey: "timestamp")
-        do {
-            try context.save()
+        if context.hasChanges {
+            context.perform {
+                do {
+                    try context.save()
+                }
+                catch(let error) {
+                    print(error.localizedDescription)
+                }
+            }
         }
-        catch(let error) {
-            print(error.localizedDescription)
-            return false
-        }
-        return true
     }
 }

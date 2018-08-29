@@ -17,7 +17,7 @@ protocol HeartRateDisplayable: class {
 
 /// Interface for the Interactor.
 protocol HeartRateBusinessLogic {
-    func listenAndCompute()
+    func listenAndUpdate()
 }
 
 /// Interface for the Presenter.

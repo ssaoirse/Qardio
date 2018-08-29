@@ -27,6 +27,9 @@ class HRMonitorInteractor {
     // Double.
     private var measurements = [Int]()
     private var secondsElapsed = 0
+    // This array will hold the HR values which are less than 65. As we are not holding
+    // all the measurement values..
+    private var restingHR = [Int]()
     
     /// Initializer
     init(hrDataController: HRDataController,
@@ -41,7 +44,7 @@ class HRMonitorInteractor {
 
 // MARK:- HeartRateBusinessLogic
 extension HRMonitorInteractor: HeartRateBusinessLogic {
-    public func listenAndCompute() {
+    public func listenAndUpdate() {
         self.dataProvider.subscribeNewListener(self)
     }
 }
@@ -50,7 +53,7 @@ extension HRMonitorInteractor: HeartRateBusinessLogic {
 // MARK:- DataProviderListener
 extension HRMonitorInteractor: DataProviderListener {
     func measurementUpdated(_ measurement: Double) {
-        measurements.append(Int(measurement))
+        self.measurements.append(Int(measurement))
         
         guard measurements.count >= 300 else { return }
         let ecgInput = Array(measurements.suffix(300))
@@ -63,9 +66,18 @@ extension HRMonitorInteractor: DataProviderListener {
             // Increment seconds elapsed.
             secondsElapsed += 1
             
+            // Append any RHR values
+            restingHR.append(contentsOf: (Array(measurements).filter {$0 < Constants.kRestingHRThreshold && $0 > 0}))
+            if restingHR.count > Constants.kMinReadingsForAverageRHR  {
+                restingHR.removeFirst(restingHR.count - Constants.kMinReadingsForAverageRHR)
+                self.computeAndUpdateAverageRHR()
+            }
+            
             // Keeping most recent 50000 values to limit memory used.
+            // Compute Average Heart Rate.
             if measurements.count >= Constants.kMinReadingsForAverageHR {
                 measurements.removeFirst(measurements.count - Constants.kMinReadingsForAverageHR)
+                computeAndUpdateAverageHR()
             }
             
             // Elapsed time in secs.
@@ -83,23 +95,46 @@ extension HRMonitorInteractor: DataProviderListener {
                     }
                 }
             }
+            
         }
-        
-        
-        
-        
     }
 }
 
 // MARK:- Private Methods in Extension.
 extension HRMonitorInteractor {
     
-    fileprivate func logAverageHeartRate(_ rate: Int) {
-        let _ = self.hrDataController.addLogForType(.averageHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
+    fileprivate func computeAndUpdateAverageRHR() {
+        let values = restingHR
+        DispatchQueue.global().async {[weak self] in
+            let avg = (values.reduce(0, +) / values.count)
+            self?.hrDataController.addLogForType(.averageRHR,
+                                                 withRate: avg,
+                                                 date: Date(timeIntervalSinceNow: 0))
+            self?.presenter.presentRestingHeartRate(with: avg)
+        }
     }
     
-    fileprivate func logAverageRestingHeartRate(_ rate: Int) {
-        let _ = self.hrDataController.addLogForType(.averageRHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
+    fileprivate func computeAndUpdateAverageHR() {
+        let values = measurements
+        
+        let dispatchGroup = DispatchGroup()
+        let parts = values.chunked(into: Constants.kChunkSizeForAverageHR)
+        var total = 0
+        for i in 0..<5 {
+            dispatchGroup.enter()
+            DispatchQueue.global().async {
+                total += ((parts[i]).reduce(0, +))
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .global()) {[weak self] in
+            let avg = total/values.count
+            self?.hrDataController.addLogForType(.averageHR,
+                                                 withRate: avg,
+                                                 date: Date(timeIntervalSinceNow: 0))
+            self?.presenter.presentHeartRate(with: avg)
+        }
     }
 }
 
