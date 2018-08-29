@@ -6,7 +6,7 @@
 //  Copyright © 2018 DI. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Constants {
     static  let kMinReadingsForAverageHR                = 50000

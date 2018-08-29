@@ -6,7 +6,7 @@
 //  Copyright © 2018 DI. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class HRMonitorPresenter {
     private weak var viewController: HeartRateDisplayable?
