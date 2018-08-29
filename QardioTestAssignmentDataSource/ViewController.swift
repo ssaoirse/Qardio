@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var frequentHRValueLabel: UILabel!
     @IBOutlet weak var sessionTimeValueLabel: UILabel!
     
-    private var measurements = [Double]()
+    private var measurements = [Int]()
     
     private lazy var interactor: HeartRateBusinessLogic =
         HRMonitorInteractor(hrDataController: HRDataController(),
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
 
 extension ViewController: DataProviderListener {
     func measurementUpdated(_ measurement: Double) {
-        measurements.append(measurement)
+        measurements.append(Int(measurement))
 
         guard measurements.count >= 300 else { return }
         ecgView.measurements = Array(measurements.suffix(300))
@@ -68,7 +68,7 @@ extension ViewController: DataProviderListener {
 
 // MARK:- HeartRateDisplayable -
 extension ViewController: HeartRateDisplayable {
-    func updateECG(with measurements:[Double]) {
+    func updateECG(with measurements:[Int]) {
         self.ecgView.measurements = measurements
         DispatchQueue.main.async {
             self.ecgView.setNeedsDisplay()

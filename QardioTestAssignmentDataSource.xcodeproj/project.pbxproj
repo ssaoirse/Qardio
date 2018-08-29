@@ -13,6 +13,8 @@
 		0458D0752133003F00FC26BB /* HRMonitorInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0742133003F00FC26BB /* HRMonitorInterfaces.swift */; };
 		0458D0772133017100FC26BB /* HRMonitorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0762133017100FC26BB /* HRMonitorInteractor.swift */; };
 		0458D0792133043D00FC26BB /* HRMonitorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458D0782133043D00FC26BB /* HRMonitorPresenter.swift */; };
+		0478F4EE213668D600F2866F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478F4ED213668D600F2866F /* ArrayExtension.swift */; };
+		0478F4F02136820A00F2866F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478F4EF2136820A00F2866F /* Constants.swift */; };
 		280283B2203EE09500EAF86F /* ECGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280283B1203EE09500EAF86F /* ECGView.swift */; };
 		280283B4203EE81D00EAF86F /* ecgdata.csv in Resources */ = {isa = PBXBuildFile; fileRef = 280283B3203EE81C00EAF86F /* ecgdata.csv */; };
 		280283B6203EEFCB00EAF86F /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 280283B5203EEFCB00EAF86F /* heart.png */; };
@@ -33,6 +35,8 @@
 		0458D0742133003F00FC26BB /* HRMonitorInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorInterfaces.swift; sourceTree = "<group>"; };
 		0458D0762133017100FC26BB /* HRMonitorInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorInteractor.swift; sourceTree = "<group>"; };
 		0458D0782133043D00FC26BB /* HRMonitorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRMonitorPresenter.swift; sourceTree = "<group>"; };
+		0478F4ED213668D600F2866F /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		0478F4EF2136820A00F2866F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		280283B1203EE09500EAF86F /* ECGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECGView.swift; sourceTree = "<group>"; };
 		280283B3203EE81C00EAF86F /* ecgdata.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ecgdata.csv; sourceTree = "<group>"; };
 		280283B5203EEFCB00EAF86F /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				042CEFEE213596E6008DF061 /* CoreDataHelper.swift */,
 				042CEFF0213598BC008DF061 /* HRDataController.swift */,
 				042CEFF22135A0A5008DF061 /* HRType.swift */,
+				0478F4ED213668D600F2866F /* ArrayExtension.swift */,
+				0478F4EF2136820A00F2866F /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 				28428CD51FE184C0008C49DD /* ViewController.swift in Sources */,
 				0458D0752133003F00FC26BB /* HRMonitorInterfaces.swift in Sources */,
 				28428CD31FE184C0008C49DD /* AppDelegate.swift in Sources */,
+				0478F4F02136820A00F2866F /* Constants.swift in Sources */,
 				D0EE0FC51FE29F5B00F0583B /* DataController.m in Sources */,
+				0478F4EE213668D600F2866F /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 /// Interface for the View Controller.
 protocol HeartRateDisplayable: class {
-    func updateECG(with measurements:[Double])
+    func updateECG(with measurements:[Int])
     func displayHeartRate(value: String)
     func displayRestingHeartRate(value: String)
     func displayFrequentHeartRate(value: String)
@@ -22,10 +22,10 @@ protocol HeartRateBusinessLogic {
 
 /// Interface for the Presenter.
 protocol HeartRatePresentable {
-    func presentECG(with measurements:[Double])
-    func presentHeartRate(with value: Double)
-    func presentRestingHeartRate(with value: Double)
-    func presentFrequentHeartRate(with value: Double)
+    func presentECG(with measurements:[Int])
+    func presentHeartRate(with value: Int)
+    func presentRestingHeartRate(with value: Int)
+    func presentFrequentHeartRate(with value: Int)
     func presentSessionTime(with value: Int)
 }
 

@@ -21,7 +21,12 @@ class HRMonitorInteractor {
     /// Reference type to facilitate view updates.
     private let presenter: HeartRatePresentable
     
-    private var measurements = [Double]()
+    // NOTE:
+    // measurements has been modified to use Int rather than Double
+    // This sacrifices precision for speed assuming Int comparisons are faster than
+    // Double.
+    private var measurements = [Int]()
+    private var secondsElapsed = 0
     
     /// Initializer
     init(hrDataController: HRDataController,
@@ -45,7 +50,7 @@ extension HRMonitorInteractor: HeartRateBusinessLogic {
 // MARK:- DataProviderListener
 extension HRMonitorInteractor: DataProviderListener {
     func measurementUpdated(_ measurement: Double) {
-        measurements.append(measurement)
+        measurements.append(Int(measurement))
         
         guard measurements.count >= 300 else { return }
         let ecgInput = Array(measurements.suffix(300))
@@ -55,28 +60,39 @@ extension HRMonitorInteractor: DataProviderListener {
         
         // Compute elapsed time. (1 sec interval)
         if measurements.count % 500 == 0 {
+            // Increment seconds elapsed.
+            secondsElapsed += 1
+            
+            // Keeping most recent 50000 values to limit memory used.
+            if measurements.count >= Constants.kMinReadingsForAverageHR {
+                measurements.removeFirst(measurements.count - Constants.kMinReadingsForAverageHR)
+            }
             
             // Elapsed time in secs.
-            self.presenter.presentSessionTime(with: measurements.count/500)
+            self.presenter.presentSessionTime(with: secondsElapsed)
             
             // Most Frequent Heart Rate
-            // Every 1 second 500 readings are added.
-            // So when readings count % 2500 == 0 => 5 secs have elapsed.
-            if measurements.count % 2500 == 0 && measurements.count >= 20000 {
+            if secondsElapsed % Constants.kFrequentHRReadingsIntervalInSecs == 0 &&
+                measurements.count >= Constants.kMinReadingsForAverageFrequentHR {
                 DispatchQueue.global().async {[weak self] in
-                    let values = Array((self?.measurements.suffix(20000))!)
-                    self?.computeMostFrequentHeartRate(values)
+                    if let slice = self?.measurements.suffix(Constants.kMinReadingsForAverageFrequentHR) {
+                        let values = Array(slice)
+                        if let value = values.mostFrequent() {
+                            self?.presenter.presentFrequentHeartRate(with: value)
+                        }
+                    }
                 }
             }
         }
         
-        // TODO: Update fields.
-//        DispatchQueue.main.async {[weak self] in
-//            self?.logAverageHeartRate(Int((self?.measurements[(self?.measurements.count)!-1])!))
-//        }
-//        self.presenter.presentHeartRate(with: result[299])
-//        self.presenter.presentRestingHeartRate(with: result[299])
+        
+        
+        
     }
+}
+
+// MARK:- Private Methods in Extension.
+extension HRMonitorInteractor {
     
     fileprivate func logAverageHeartRate(_ rate: Int) {
         let _ = self.hrDataController.addLogForType(.averageHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
@@ -85,13 +101,5 @@ extension HRMonitorInteractor: DataProviderListener {
     fileprivate func logAverageRestingHeartRate(_ rate: Int) {
         let _ = self.hrDataController.addLogForType(.averageRHR, withRate: rate, date: Date(timeIntervalSinceNow: 0))
     }
-    
-    fileprivate func computeMostFrequentHeartRate(_ readings: [Double]) {
-        let counts = readings.reduce(into: [:]) {
-            $0[$1, default: 0] += 1
-        }
-        let result = counts.max(by: { $0.1 < $1.1 })
-        print("\(Date(timeIntervalSinceNow: 0))")
-        self.presenter.presentFrequentHeartRate(with: (result!.0))
-    }
 }
+

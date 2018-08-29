@@ -10,8 +10,10 @@ import UIKit
 
 class ECGView: UIView {
 
-    var measurements = [Double]()
-
+    // Modified:
+    //var measurements = [Double]()
+    var measurements = [Int]()
+    
     override func draw(_ rect: CGRect) {
         UIColor.white.setFill()
         UIRectFill(rect)
